@@ -1,0 +1,99 @@
+<div class="container-fluid py-3">
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
+            <div id="pay-invoice" class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3 class="text-center">Pay Invoice</h3>
+                    </div>
+                    <hr>
+                    <form novalidate action="/echo" method="post" novalidate="novalidate" class="needs-validation" #regForm="ngForm">
+                        
+                       
+                        <div class="form-group">
+                            <label for="cc-number" class="control-label mb-1">Card number</label>
+                             <input type="text" required class="form-control cc-number identified visa"
+                             id="card"  
+                             name="card" 
+                             [(ngModel)]=payment.card
+                             #card="ngModel"
+                             
+                             [ngClass]="{'is-invalid':(card.touched||card.dirty)&&!card.valid}"/>
+             
+                             <span class="invalid-feedback">Enter a valid 12 to 16 digit card number</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="cc-exp" class="control-label mb-1">Expiration</label>
+                                    
+                                    <input type="text" required class="form-control cc-number identified visa"
+                                    id="date"  
+                                    name="date" 
+                                    [(ngModel)]=payment.expiration
+                                    #date="ngModel"
+                                    
+                                    [ngClass]="{'is-invalid':(date.touched||date.dirty)&&!date.valid}"/>
+                    
+                                    <span class="invalid-feedback">Enter the expiration date</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label for="x_card_code" class="control-label mb-1">CVV</label>
+                                <div class="input-group">
+                                    
+                                    <input type="text" required class="form-control cc-number identified visa"
+                                    id="cvv"  
+                                    name="cvv" 
+                                    [(ngModel)]=payment.cvv
+                                    #cvv="ngModel"
+                                    
+                                    [ngClass]="{'is-invalid':(cvv.touched||cvv.dirty)&&!cvv.valid}"/>
+                    
+                                    <span class="invalid-feedback order-last">Enter the 3-digit code on back</span>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                        <span class="fa fa-question-circle fa-lg" data-toggle="popover" data-container="body" data-html="true" data-title="CVV" 
+                                        
+                                        data-trigger="hover"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="x_zip" class="control-label mb-1">Postal code</label>
+                            <input type="text" required class="form-control cc-number identified visa"
+                                    id="postal"  
+                                    name="postal" 
+                                    [(ngModel)]=payment.postal
+                                    #postal="ngModel"
+                                    
+                                    [ngClass]="{'is-invalid':(postal.touched||postal.dirty)&&!postal.valid}"/>
+                    
+                            <span class="help-block" data-valmsg-for="x_zip" data-valmsg-replace="true"></span>
+                        </div>
+                         <div class="form-group">
+                            <label for="x_promotion" class="control-label mb-1">Promotion Code</label>
+                            <input id="x_promotion" name="x_prom" type="text" class="form-control" value="" data-val="true" data-val-required="Please enter the Promotion  code" >
+                            <span class="help-block" data-valmsg-for="x_promotion" data-valmsg-replace="true"></span>
+                        </div>
+                        
+                        <div>
+                            <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" (click)="onClick()" [disabled]="!regForm.valid">
+                                <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                <span id="payment-button-amount">Pay {{overall}} /- </span>
+                                                               
+                            </button>
+                            <button id="payment-button" type="submit" (click)="goBack()" class="btn btn-lg btn-info btn-block">
+                                <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                <span id="payment-button-amount" >Back to Home Page </span>
+                                                               
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

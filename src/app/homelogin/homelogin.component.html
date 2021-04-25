@@ -1,0 +1,128 @@
+<nav class="navbar navbar-expand-lg navbar-light " >
+    <a class="navbar-brand" [routerLink]="['/homelogin']" style="font-family:Verdana, Geneva, Tahoma, sans-serif"><img src="./assets/images/icon.webp" width="40px" height="40px"/>&nbsp;
+      Kitchen Story</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>     
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto topnav">
+              <li class="nav-item active">
+                  <a class="nav-link" [routerLink]="['/homelogin']">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/itemslogin']">Kitchen Items</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/aboutuslogin']">About Us</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/contactuslogin']">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/cart']">Cart</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)='logout()'>Logout</a>
+            </li>              
+          </ul>
+      </div>
+    </nav>
+    <hr style="color:black;">
+  <div class="container">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <a [routerLink]="['/kitchen']"><img class="d-block w-100" src="./assets/images/1.jpg" alt="First slide"></a>
+            </div>
+            <div class="carousel-item">
+              <a [routerLink]="['/kitchen']"><img class="d-block w-100" src="./assets/images/2.jpg" alt="Second slide"></a>
+            </div>
+            <div class="carousel-item">
+              <a [routerLink]="['/kitchen']"><img class="d-block w-100" src="./assets/images/3.jpg" alt="Third slide"></a>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+  
+  
+  <p class="lead">
+      <b>Why is it important to eat vegetables?</b><br><br>
+  Eating vegetables provides health benefits – people who eat more vegetables
+  and fruits as part of an overall healthy diet are likely to have a reduced risk of
+  some chronic diseases. Vegetables provide nutrients vital for health and
+  maintenance of your body.
+  Nutrients
+  Most vegetables are naturally low in fat and calories.
+  None have cholesterol. (Sauces or seasonings may
+  add fat, calories, and/ or cholesterol).
+  Vegetables are important sources of many nutrients,
+  including potassium, dietary fiber, folate (folic acid),
+  vitamin A, and vitamin C. Diets rich in potassium may
+  help to maintain healthy blood pressure. Vegetable
+  sources of potassium include sweet potatoes, white
+  potatoes, white beans, tomato products (paste,
+  sauce, and juice), beet greens, soybeans, lima beans, spinach, lentils, and
+  kidney beans.
+  Dietary fiber from vegetables, as part of an overall healthy diet, helps
+  reduce blood cholesterol levels and may lower risk of heart disease. Fiber
+  is important for proper bowel function. It helps reduce constipation and
+  diverticulosis. Fiber-containing foods such as vegetables help provide a
+  feeling of fullness with fewer calories.<br>
+  </div>
+  <footer class=" text-center text-lg-start" style='background-color:slategray;'>
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Footer Content</h5>
+  
+          <p>
+            As eating vegetables provides health benefits – people who eat more vegetables
+  and fruits as part of an overall healthy diet are likely to have a reduced risk of some chronic diseases. Vegetables provide nutrients vital for health and
+  maintenance of your body. We provide organic vegetables and fruits and can assure you that they have been 
+  produced with out any fertilizers i.e Organic Farming.
+          </p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+          <ul class="list-unstyled mb-0">
+          <li>
+              <a [routerLink]="['/kitchen']" class="text-dark">Kitchen Items</a>
+            </li>
+            <li>
+              <a [routerLink]="['/about']" class="text-dark">About Us </a>
+            </li>
+            <li>
+              <a [routerLink]="['/contact']" class="text-dark">Contact Us </a>
+            </li>
+            
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-0">Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a [routerLink]="['/login']" class="text-dark">Login</a>
+            </li>
+            <li>
+              <a [routerLink]="['/register']" class="text-dark">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © Designed and Developed by Tarun Sai Pamulapati   
+    </div>
+  </footer>

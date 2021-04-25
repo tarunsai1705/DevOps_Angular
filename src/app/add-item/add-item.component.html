@@ -1,0 +1,164 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+<nav class="navbar navbar-expand-lg navbar-light " >
+    <a class="navbar-brand" [routerLink]="['/admin']" style="font-family:Verdana, Geneva, Tahoma, sans-serif"><img src="./assets/images/icon.webp" width="40px" height="40px"/>&nbsp;
+        Kitchen Story</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>     
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto topnav">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/admin']">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/admin-password']">Change Password</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" [routerLink]="['/admin-items']">Kitchen Items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/add-items']">Add Items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/home']">Logout</a>
+            </li>
+                          
+        </ul>
+    </div>  
+  </nav>
+
+<div class="card container">
+    <div class="card-header heading" align="center">
+        Add New Item here
+    </div>
+<div class="card-body lg-4 md-6 sm-12 xs-12" align="center">
+    <form novalidate (ngSubmit)="onFruitAdd(regForm)" #regForm="ngForm">
+        <!-- fruitid -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="fruitId">FruitID</label>
+            <div class="col-md-8">
+                <input type="text" required 
+                id="fruitId" 
+                minlength="1" 
+                name="fruitID" 
+                [(ngModel)]=kitchen.fruitID 
+                #fruitID="ngModel"
+                [ngClass]="{'is-invalid':(fruitID.touched||fruitID.dirty)&&!fruitID.valid}"/>
+
+                <span class="invalid-feedback">
+                    <span *ngIf=fruitID.errors?.required>
+                        The fruit ID is required
+                    </span>
+
+                    <span *ngIf=fruitID.errors?.minlength>
+                        The fruit ID should characters long
+                    </span>
+                </span>
+            </div>            
+        </div>
+        <!-- Fruit Name -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="fruitName">Fruit Name</label>
+            <div class="col-md-8">
+                <input type="text" required 
+                id="fruitName" 
+                minlength="1" 
+                name="fruitName" 
+                [(ngModel)]=kitchen.fruitName
+                #fruitName="ngModel"
+                [ngClass]="{'is-invalid':(fruitName.touched||fruitName.dirty)&&!fruitName.valid}"/>
+
+                <span class="invalid-feedback">
+                    <span *ngIf=fruitName.errors?.required>
+                        The fruit Name is required
+                    </span>
+
+                    <span *ngIf=fruitName.errors?.minlength>
+                        The fruit Name should characters long
+                    </span>
+                </span>
+            </div>            
+        </div>
+
+        <!-- Category -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="category">Category</label>
+            <div class="col-md-8">
+                <input type="text" required 
+                id="category" 
+                minlength="1" 
+                name="Category" 
+                [(ngModel)]=kitchen.fruitCategory
+                #Category="ngModel"
+                [ngClass]="{'is-invalid':(Category.touched||Category.dirty)&&!Category.valid}"/>
+
+                <span class="invalid-feedback">
+                    <span *ngIf=Category.errors?.required>
+                        The Category is required
+                    </span>
+
+                    <span *ngIf=Category.errors?.minlength>
+                        The Category should characters long
+                    </span>
+                </span>
+            </div>            
+        </div>
+
+        <!-- Src -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="Source">Source</label>
+            <div class="col-md-8">
+                <input type="text" required 
+                id="Source" 
+                minlength="1" 
+                name="Src" 
+                [(ngModel)]=kitchen.fruitSrc
+                #Src="ngModel"
+                [ngClass]="{'is-invalid':(Src.touched||Src.dirty)&&!Src.valid}"/>
+
+                <span class="invalid-feedback">
+                    <span *ngIf=Src.errors?.required>
+                         Please provide proper source
+                    </span>
+
+                </span>
+            </div>            
+        </div>
+
+        <!-- Price -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="Price">Rate</label>
+            <div class="col-md-8">
+                <input type="text" required 
+                id="Price" 
+                minlength="1" 
+                name="Rate" 
+                [(ngModel)]=kitchen.fruitRate
+                #Rate="ngModel"
+                [ngClass]="{'is-invalid':(Rate.touched||Rate.dirty)&&!Rate.valid}"/>
+
+                <span class="invalid-feedback">
+                    <span *ngIf=Rate.errors?.required>
+                         Please provide proper Rate
+                    </span>
+
+                    
+                </span>
+            </div>            
+        </div>
+
+        <div class="col-md-8" *ngIf="showMsg"  align="center">
+            <p class="alert alert-success" align="center">
+                <strong>Item Successfully Added</strong> 
+            </p>
+        </div>
+        <button class="btn btn-success" (click)="onBack()">Back</button>&nbsp;
+     <button class="btn btn-success" type="submit" [disabled]="!regForm.valid">Submit</button>
+    </form>
+</div>
+</div>  

@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-light " >
+    <a class="navbar-brand" [routerLink]="['/admin']" style="font-family:Verdana, Geneva, Tahoma, sans-serif"><img src="./assets/images/icon.webp" width="40px" height="40px"/>&nbsp;
+        Kitchen Story</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>     
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto topnav">
+            <li class="nav-item">
+                <a class="nav-link active" [routerLink]="['/admin']">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/admin-password']">Change Password</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/admin-items']">Kitchen Items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/home']">Logout</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+
+
+  <hr style="color:black;">
+
+  <h4 align="center"> ADMIN CONSOLE </h4>
+  <h5 align="center"> Please select the required Service </h5>
+
+  <div class="container">
+    
+    <div class="row justify-content-around">
+      <div class="col-4">
+        <div class="row card-group" style="margin:20px;">
+            <div style="width: 17rem;">
+                <div class="card mt-4">
+                    <img src='./assets/images/changep.jpg' class="card-img-top" alt="..." width="250px" height="250px">
+                    <div class="card-body">
+                        <h5 class="card-title" align="center">Password Change</h5>
+                    </div>
+                    <div class="card-body" align="center">
+                        <a [routerLink]="['/admin-password']" class="card-link">Click Here to change Password</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="row card-group" style="margin:20px;">
+            <div style="width: 17rem;">
+                <div class="card mt-4">
+                    <img src='./assets/images/items.jpg' class="card-img-top" alt="..." width="250px" height="250px">
+                    <div class="card-body">
+                        <h5 class="card-title" align="center">Kitchen Items</h5>
+                    </div>
+                    <div class="card-body" align="center">
+                        <a [routerLink]="['/admin-items']" class="card-link">Click here to view Kitchen Items</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+      </div>
+</div>

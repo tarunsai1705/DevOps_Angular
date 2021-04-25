@@ -1,0 +1,68 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+ 
+<nav class="navbar navbar-expand-lg navbar-light " >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>     
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto topnav">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/homelogin']">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/itemslogin']">Kitchen Items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/aboutuslogin']">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/contactuslogin']">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/cart']">Cart</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)='logout()'>Logout</a>
+            </li>            
+        </ul>
+    </div>
+  
+  
+  </nav>
+  <hr style="color:black;">
+
+<div class="container">
+  <div class="card shadow">
+    
+      <div class="card-header heading" align="center">
+              {{fruits.fruitName}}
+      </div>
+      <img class="card-img-top" [src]="fruits.fruitSrc">
+      <div class="data">
+          <p align="center">Category:  {{fruits.fruitCategory}}</p>
+          <p align="center">Price: {{fruits.fruitRate}}</p>
+      </div>
+      <div align="center">
+      <button class="btn btn-default" style="background-color: lightblue;" (click)='minus()' >-</button>&nbsp;
+      <input  type="number" [(ngModel)]="quantity" align="left" type="text" size="1" disabled />&nbsp;
+      <button class="btn btn-default" style="background-color: lightblue;" (click)='plus()'>+</button> 
+    </div> <br>
+     
+    <div class="card-body" align="center">
+      <div class="col-md-8" *ngIf="showMsg"  align="right">
+        <p class="alert alert-success" align="center">
+            <strong>Successfully added to cart!</strong> 
+        </p>
+    </div>
+      <a class="card-link"><button class="btn btn-dark" (click)='goback()'>Back</button></a>
+      <a class="card-link"><button class="btn btn-dark" (click)='addToCart()'>Add to Cart</button></a>
+  </div>
+  
+
+  </div>
+</div>

@@ -1,0 +1,101 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+<nav class="navbar navbar-expand-lg navbar-light " >
+    <a class="navbar-brand" [routerLink]="['/home']" style="font-family:Verdana, Geneva, Tahoma, sans-serif"><img src="./assets/images/icon.webp" width="40px" height="40px"/>&nbsp;
+        Kitchen Story</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>     
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto topnav">
+            <li class="nav-item ">
+                <a class="nav-link" [routerLink]="['/home']">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/kitchen']">Kitchen Items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/about']">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/contact']">Contact Us</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link " [routerLink]="['/login']">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/register']">Register</a>
+            </li>            
+        </ul>
+    </div>  
+  </nav>
+  <hr style="color:black;">
+<div class="card container">
+    <div class="card-header heading" align="center">
+        Please Login Here here!
+    </div>
+<div class="card-body lg-4 md-6 sm-12 xs-12" align="center">
+    <form novalidate (ngSubmit)="login_user(regForm)" #regForm="ngForm">
+        <!-- email -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="emailId">Email</label>
+            <div class="col-md-8">
+                <input type="text" required 
+                id="emailId"  
+                name="email" 
+                [(ngModel)]=login.email 
+                #email="ngModel"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+                [ngClass]="{'is-invalid':(email.touched||email.dirty)&&!email.valid}"/>
+
+                <span class="invalid-feedback">
+                    <span *ngIf=email.errors?.required>
+                        Email is required
+                    </span>
+
+                    <span *ngIf=email.errors?.pattern>
+                        please enter valid email format
+                    </span>
+                </span>
+            </div>            
+        </div>
+ 
+        <!-- password -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="passwordId">Password</label>
+            <div class="col-md-8">
+                <input type="password" required 
+                id="passwordId"  
+                name="password" 
+                [(ngModel)]=login.password 
+                #password="ngModel"
+                minlength="7"
+                [ngClass]="{'is-invalid':(password.touched||password.dirty)&&!password.valid}"/>
+
+                <span class="invalid-feedback">
+                    <span *ngIf=password.errors?.required>
+                        Password is required
+                    </span>
+                    <span *ngIf=password.errors?.minlength>
+                        The Password should be 7 characters long
+                    </span>
+                </span>
+            </div>            
+        </div>
+        <br> <div class="col-md-8" *ngIf="showMsg"  align="center">
+            <p class="alert" style="background-color: lightcoral;" align="center">
+                <strong>Please provide correct credentials!</strong> 
+            </p>
+        </div>
+
+        <button class="btn btn-success" type="submit" [disabled]="!regForm.valid">submit</button>
+        <div>
+            <a class="nav-link" [routerLink]="['/register']">If new Register here</a>
+        </div>
+    </form>
+</div>
+</div>

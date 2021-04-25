@@ -1,0 +1,64 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+<nav class="navbar navbar-expand-lg navbar-light " >
+    <a class="navbar-brand" [routerLink]="['/home']" style="font-family:Verdana, Geneva, Tahoma, sans-serif"><img src="./assets/images/icon.webp" width="40px" height="40px"/>&nbsp;
+        Kitchen Story</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>     
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto topnav">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/admin']">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/admin-password']">Change Password</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" [routerLink]="['/admin-items']">Kitchen Items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/add-items']">Add Items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/home']">Logout</a>
+            </li>
+                       
+        </ul>
+    </div>
+  
+  
+  </nav>
+  <hr style="color:black;">
+<h4 align="center">List of Items</h4>
+
+<div class="table-responsive">
+    <table class="table" >
+        <thead class="bg-info">
+            <tr>
+                <th>Image</th>
+                <th>Fruit ID</th>
+                <th>Fruit Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>View Here</th>
+                
+            </tr>
+           
+        </thead>
+        <tbody>
+          <tr *ngFor='let fruit of kitchens'>
+              <td><img [src]='fruit.fruitSrc' width="100px" height="100px" [style.borderRadius]='imgRadius'></td>
+              <td>{{fruit.fruitID}}</td>
+              <td>{{fruit.fruitName}}</td>
+              <td>{{fruit.fruitCategory}}</td>
+              <td>{{fruit.fruitRate}}</td>
+              <td><a [routerLink]="['/admin-items',fruit.fruitID]"><button class="btn btn-light" style="background-color: grey;">View</button></a></td>
+          </tr>
+        </tbody>
+    </table>
+</div> 

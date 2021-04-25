@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+<nav class="navbar navbar-expand-lg navbar-light " >
+    <a class="navbar-brand" [routerLink]="['/homelogin']" style="font-family:Verdana, Geneva, Tahoma, sans-serif"><img src="./assets/images/icon.webp" width="40px" height="40px"/>&nbsp;
+        Kitchen Story</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>     
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto topnav">
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/homelogin']">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/itemslogin']">Kitchen Items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/aboutuslogin']">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/contactuslogin']">Contact Us</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" [routerLink]="['/cart']">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)='logout()'>Logout</a>
+        </li>
+        </ul>
+    </div>  
+  </nav>
+  <hr style="color:black;">
+
+
+<h4 align="center">List of items in Cart</h4>
+<div class="container" align="right">
+<button type="button" class="btn btn-primary" (click)='clearCart()'>Clear Cart</button>
+</div>
+
+<div class="table-responsive">
+    <table class="table" >
+        <thead class="bg-info">
+            <tr>
+                <th>Image</th>
+                <th>Fruit Name</th>
+                <th>Quantity</th>
+                <th>Actual Cost</th>
+                <th>Final Cost</th>
+            </tr>
+           
+        </thead>
+        <tbody>
+          <tr *ngFor='let item of items'>
+              <td><img [src]='item.fruitSrc' width="100px" height="100px" [style.borderRadius]='imgRadius' ></td>
+              <td>{{item.fruitName}}</td>
+              <td>{{item.fruitQuantity}}</td>
+              <td>{{item.fruitRate}}</td>
+              <td>{{item.final}}</td>
+          </tr>
+        </tbody>
+        
+    </table>
+    <hr style="color:black;">
+    <div class="container" align="Right">
+        <p >Overall Price: {{overall}}/-</p>
+        <div *ngIf="items?.length">
+            <button type="button" class="btn btn-primary" data-toggle='modal' data-target="#exampleModalLong">
+            Pay Now</button>
+        <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    
+                <h5 class="modal-title" id="exampleModalLongTitle">Payment Confirmation</h5>
+                
+                
+                </div>
+                <div class="modal-body">
+                Please click to confirm for payment.
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)='onClick()' data-dismiss="modal">Proceed to Pay</button>
+                
+                </div>
+            </div>
+            </div>
+        </div>
+  </div>
+</div> 
+</div>
+

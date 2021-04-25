@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card shadow">
+        <div class="card-header heading" align="center">
+            {{pgtitle+fruits.fruitName}}
+        </div>
+        <img class="card-img-top" [src]="fruits.fruitSrc">
+        <div class="data">
+            <p align="center">Category:  {{fruits.fruitCategory}}</p>
+            <p align="center">Price: {{fruits.fruitRate}}</p>
+        </div>
+        <div class="cardr-footer">
+            <div class="card-header heading" align="center">
+            <button class="btn btn-dark"(click)='goback()'>Back</button>&nbsp;&nbsp;
+            
+            <button class="btn btn-dark"(click)='onDelete(fruits.fruitID)'>Delete</button>
+        </div>
+        </div>
+    </div>
+</div>

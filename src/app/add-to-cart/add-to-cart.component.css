@@ -1,0 +1,12 @@
+img{
+    width:300px;
+    height:300px;
+}
+.container{
+    width:600px;
+    height:600px;
+    margin-top: 30px;
+}
+.card-img-top{
+    margin:50px 130px 50px 130px;
+}

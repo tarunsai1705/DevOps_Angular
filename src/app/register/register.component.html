@@ -1,0 +1,170 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+<nav class="navbar navbar-expand-lg navbar-light " >
+    <a class="navbar-brand" [routerLink]="['/home']" style="font-family:Verdana, Geneva, Tahoma, sans-serif"><img src="./assets/images/icon.webp" width="40px" height="40px"/>&nbsp;
+        Kitchen Story</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>     
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto topnav">
+            <li class="nav-item ">
+                <a class="nav-link" [routerLink]="['/home']">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/kitchen']">Kitchen Items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/about']">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/contact']">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/login']">Login</a>
+            </li>    
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/register']">Register</a>
+            </li>        
+        </ul>
+    </div>  
+  </nav>
+
+<div class="card container">
+    <div class="card-header heading" align="center">
+        New User - Register here!
+    </div>
+<div class="card-body lg-4 md-6 sm-12 xs-12" align="center">
+    <form novalidate (ngSubmit)="save(regForm)" #regForm="ngForm">
+        <!-- firstname -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="firstNameId">First Name</label>
+            <div class="col-md-8">
+                <input type="text" required 
+                id="firstNameId" 
+                minlength="4" 
+                name="firstNameVar" 
+                [(ngModel)]=register.firstName 
+                #firstNameVar="ngModel"
+                [ngClass]="{'is-invalid':(firstNameVar.touched||firstNameVar.dirty)&&!firstNameVar.valid}"/>
+
+                <span class="invalid-feedback">
+                    <span *ngIf=firstNameVar.errors?.required>
+                        The first name is required
+                    </span>
+
+                    <span *ngIf=firstNameVar.errors?.minlength>
+                        The first name should be 4 characters long
+                    </span>
+                </span>
+            </div>            
+        </div>
+        <!-- lastname -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="lastNameId">Last Name</label>
+            <div class="col-md-8">
+                <input type="text" required 
+                id="lastNameId" 
+                minlength="4" 
+                name="lastName" 
+                [(ngModel)]=register.lastName 
+                #lastNameVar="ngModel"
+                [ngClass]="{'is-invalid':(lastNameVar.touched||lastNameVar.dirty)&&!lastNameVar.valid}"/>
+
+                <span class="invalid-feedback">
+                    <span *ngIf=lastNameVar.errors?.required>
+                        The last name is required
+                    </span>
+
+                    <span *ngIf=lastNameVar.errors?.minlength>
+                        The last name should be 4 characters long
+                    </span>
+                </span>
+            </div>            
+        </div>
+        <!-- email -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="emailId">Email</label>
+            <div class="col-md-8">
+                <input type="text" required 
+                id="emailId"  
+                name="email" 
+                [(ngModel)]=register.email 
+                #email="ngModel"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+                [ngClass]="{'is-invalid':(email.touched||email.dirty)&&!email.valid}"/>
+
+                <span class="invalid-feedback">
+                    <span *ngIf=email.errors?.required>
+                        Email is required
+                    </span>
+
+                    <span *ngIf=email.errors?.pattern>
+                        please enter valid email format
+                    </span>
+                </span>
+            </div>            
+        </div>
+
+        <!-- mobile -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="mobileId">Mobile</label>
+            <div class="col-md-8">
+                <input type="text" required 
+                id="mobileId"  
+                name="mobile" 
+                [(ngModel)]=register.mobile 
+                #mobile="ngModel"
+                pattern="^((\\+91-?)|0)?[0-9]{10}$" 
+                [ngClass]="{'is-invalid':(mobile.touched||mobile.dirty)&&!mobile.valid}"/>
+
+                <span class="invalid-feedback">
+                    <span *ngIf=mobile.errors?.required>
+                        Mobile is required
+                    </span>
+
+                    <span *ngIf=mobile.errors?.pattern>
+                        please enter Mobile email format
+                    </span>
+                </span>
+            </div>            
+        </div> 
+
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="passwordId">Password</label>
+            <div class="col-md-8">
+                <input type="password" required 
+                id="passwordId"  
+                name="password" 
+                [(ngModel)]=register.password 
+                #password="ngModel"
+                minlength="7"
+                [ngClass]="{'is-invalid':(password.touched||password.dirty)&&!password.valid}"/>
+
+                <span class="invalid-feedback">
+                    <span *ngIf=password.errors?.required>
+                        Password is required
+                    </span>
+                    <span *ngIf=password.errors?.minlength>
+                        The Password should be 7 characters long
+                    </span>
+                </span>
+            </div>            
+        </div>
+
+        <button class="btn btn-success" type="submit" [disabled]="!regForm.valid">submit</button>
+        <br>
+        
+           <br> <div class="col-md-8" *ngIf="showMsg"  align="center">
+              <p class="alert alert-success" align="center">
+                  <strong>Registration Success!</strong> 
+              </p>
+          </div>
+    </form>  
+         
+</div>
+</div>
